@@ -1,17 +1,36 @@
-from select import select
+import math
+from numpy import random
 
-rates=[]
-FB_ads = 400
-linkedin_ads = 600
+# Rates in ksh per day I've used variety of apps for different clients and both the chronically online or not
+FB_ads = 120
+linkedin_ads = 350
 IG_ads = 200
 whatsapp_ads = 135
 
-import math
-import calendar
-import statistics
-import random
+# declaring the rates to an object
+rates = [FB_ads, linkedin_ads, IG_ads, whatsapp_ads]
 
-for (FB_ads, linkedin_ads, IG_ads,whatsapp_ads) in rates:
-    sum(FB_ads+linkedin_ads+IG_ads+whatsapp_ads)
-    print(sum)
+# Calculating the sum of ad rates for a single day
+daily_sum = sum(rates)
+print(f"Sum of ad rates for a single day: Ksh.{daily_sum}")
 
+# Calculating the sum of ad rates for a month (assuming 30 days in a month)
+days_in_month = 30
+
+monthly_sum = daily_sum * days_in_month
+print(f"Sum of ad rates for a month (30 days): Ksh{monthly_sum}")
+
+#Trying to get possibility of people clicking on links and buying. The number is unknown
+clicks = random.randint(100)
+#out of 100 ads, how many can get clicked?
+print(f"Today we have gotten these successful links: {clicks}")
+
+#Trying to get successful sales from the links in a month
+#The answer will vary because each day is a prediction
+monthly_clicks = clicks*days_in_month
+
+print(f"This month we have gotten these successful sales from ads: {monthly_clicks}")
+
+            
+
+    
