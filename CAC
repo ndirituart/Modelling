@@ -1,0 +1,17 @@
+from select import select
+
+rates=[]
+FB_ads = 400
+linkedin_ads = 600
+IG_ads = 200
+whatsapp_ads = 135
+
+import math
+import calendar
+import statistics
+import random
+
+for (FB_ads, linkedin_ads, IG_ads,whatsapp_ads) in rates:
+    sum(FB_ads+linkedin_ads+IG_ads+whatsapp_ads)
+    print(sum)
+
