@@ -1,0 +1,48 @@
+#The last algorithm oly gives us a general insight into how many ads we can get and random clicks we can get
+#This is more specific to different rates of clicks from ads on different platforms based on their popularity, target market etc
+
+
+# These are hypothetical click-through rates (CTR) for each platform:
+ctr_facebook = 0.015  #1.5%
+ctr_linkedin = 0.010  #1.0%
+ctr_instagram = 0.02  #2.0%
+ctr_whatsapp = 0.012  #1.2%
+
+#From these statistics we expect more from instagram and facebook
+
+# Our target market for this month is 100 clicks per day which is like 100 sales per day
+target_clicks = 100
+
+# Calculate the impressions needed for each platform to achieve the desired clicks. That is our target divided by the clicks rate
+impressions_facebook = target_clicks / ctr_facebook
+impressions_linkedin = target_clicks / ctr_linkedin
+impressions_instagram = target_clicks / ctr_instagram
+impressions_whatsapp = target_clicks / ctr_whatsapp
+
+# Calculate the total impressions needed (In terms of profile views, new users, repeat users, shares, comments). A sum from all the apps
+total_impressions = (impressions_facebook + impressions_linkedin + impressions_instagram + impressions_whatsapp)
+
+print(f"Total impressions from Facebook, Linkedin, Instagram and Whatsapp is: {total_impressions}")
+# Calculate the percentage of the total impressions for each platform. Each platform's contribution from the total impressions
+percentage_facebook = impressions_facebook / total_impressions
+percentage_linkedin = impressions_linkedin / total_impressions
+percentage_instagram = impressions_instagram / total_impressions
+percentage_whatsapp = impressions_whatsapp / total_impressions
+
+# Assume a total budget (e.g., Ksh. 50,000. This is our monthly budget. Is this enough? Do we need to add?)
+total_budget = 50000
+
+# Allocate the budget based on the percentage of impressions needed
+budget_facebook = total_budget * percentage_facebook
+budget_linkedin = total_budget * percentage_linkedin
+budget_instagram = total_budget * percentage_instagram
+budget_whatsapp = total_budget * percentage_whatsapp
+
+# Print the results
+print(f"To achieve {target_clicks} clicks, allocate your budget as follows:")
+print(f"Facebook: Ksh.{budget_facebook:.2f}")
+print(f"LinkedIn: Ksh{budget_linkedin:.2f}")
+print(f"Instagram: Ksh{budget_instagram:.2f}")
+print(f"WhatsApp: Ksh{budget_whatsapp:.2f}")
+
+#This algoritm is directed by clicks for budgets, your clicks needed redirects your budget not vice versa
