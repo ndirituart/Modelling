@@ -1,48 +1,78 @@
-#The last algorithm oly gives us a general insight into how many ads we can get and random clicks we can get
-#This is more specific to different rates of clicks from ads on different platforms based on their popularity, target market etc
+import tkinter as tk
 
+#The last algorithm only gives us a general insight into how many ads we can get and random clicks we can get
+#This is more flexible to cater to different budgets and companies
+#The apps used too, can be flexible because some companies will have preferences to different apps
 
-# These are hypothetical click-through rates (CTR) for each platform:
-ctr_facebook = 0.015  #1.5%
-ctr_linkedin = 0.010  #1.0%
-ctr_instagram = 0.02  #2.0%
-ctr_whatsapp = 0.012  #1.2%
+def calculate_allocation():
+    # Get the user input for target clicks and total budget
+    target_clicks = int(entry_target_clicks.get())
+    total_budget = float(entry_total_budget.get())
 
-#From these statistics we expect more from instagram and facebook
+    # Click-through rates
+    ctr_facebook = 15 / 100
+    ctr_linkedin = 47 / 100
+    ctr_instagram = 30 / 100
+    ctr_whatsapp = 8 / 100
 
-# Our target market for this month is 100 clicks per day which is like 100 sales per day
-target_clicks = 100
+    # From these statistics we expect more from instagram and linkedin for company X
 
-# Calculate the impressions needed for each platform to achieve the desired clicks. That is our target divided by the clicks rate
-impressions_facebook = target_clicks / ctr_facebook
-impressions_linkedin = target_clicks / ctr_linkedin
-impressions_instagram = target_clicks / ctr_instagram
-impressions_whatsapp = target_clicks / ctr_whatsapp
+    # Calculate the impressions needed for each platform.That is our target divided by the clicks rate.
+    impressions_facebook = target_clicks / ctr_facebook
+    impressions_linkedin = target_clicks / ctr_linkedin
+    impressions_instagram = target_clicks / ctr_instagram
+    impressions_whatsapp = target_clicks / ctr_whatsapp
 
-# Calculate the total impressions needed (In terms of profile views, new users, repeat users, shares, comments). A sum from all the apps
-total_impressions = (impressions_facebook + impressions_linkedin + impressions_instagram + impressions_whatsapp)
+    # Calculate the total impressions needed.
+    # Calculate the total impressions needed (In terms of profile views, new users, repeat users, shares, comments). A sum from all the apps
+    total_impressions = (impressions_facebook + impressions_linkedin + impressions_instagram + impressions_whatsapp)
 
-print(f"Total impressions from Facebook, Linkedin, Instagram and Whatsapp is: {total_impressions}")
-# Calculate the percentage of the total impressions for each platform. Each platform's contribution from the total impressions
-percentage_facebook = impressions_facebook / total_impressions
-percentage_linkedin = impressions_linkedin / total_impressions
-percentage_instagram = impressions_instagram / total_impressions
-percentage_whatsapp = impressions_whatsapp / total_impressions
+    # Calculate the percentage of the total impressions for each platform.Each platform's contribution from the total impressions
+    percentage_facebook = impressions_facebook / total_impressions
+    percentage_linkedin = impressions_linkedin / total_impressions
+    percentage_instagram = impressions_instagram / total_impressions
+    percentage_whatsapp = impressions_whatsapp / total_impressions
 
-# Assume a total budget (e.g., Ksh. 50,000. This is our monthly budget. Is this enough? Do we need to add?)
-total_budget = 50000
+    # Allocate the budget based on the percentage of impressions needed from each platform
+    budget_facebook = total_budget * percentage_facebook
+    budget_linkedin = total_budget * percentage_linkedin
+    budget_instagram = total_budget * percentage_instagram
+    budget_whatsapp = total_budget * percentage_whatsapp
 
-# Allocate the budget based on the percentage of impressions needed
-budget_facebook = total_budget * percentage_facebook
-budget_linkedin = total_budget * percentage_linkedin
-budget_instagram = total_budget * percentage_instagram
-budget_whatsapp = total_budget * percentage_whatsapp
+    # Display the results
+    result_text = (
+        f"To achieve {target_clicks} clicks, allocate your budget as follows:\n"
+        f"Facebook: Ksh.{budget_facebook:.2f}\n"
+        f"LinkedIn: Ksh.{budget_linkedin:.2f}\n"
+        f"Instagram: Ksh.{budget_instagram:.2f}\n"
+        f"WhatsApp: Ksh.{budget_whatsapp:.2f}"
+    )
+    result_label.config(text=result_text)
 
-# Print the results
-print(f"To achieve {target_clicks} clicks, allocate your budget as follows:")
-print(f"Facebook: Ksh.{budget_facebook:.2f}")
-print(f"LinkedIn: Ksh{budget_linkedin:.2f}")
-print(f"Instagram: Ksh{budget_instagram:.2f}")
-print(f"WhatsApp: Ksh{budget_whatsapp:.2f}")
+    #This algorithm is purely determined by one's budget and target clicks, other factors that are flexible are like the platforms used due to preference
+    #This is the backend worth that the algorithm does
 
-#This algoritm is directed by clicks for budgets, your clicks needed redirects your budget not vice versa
+#This is the improvised UI that the client sees
+# Create the main window
+window = tk.Tk()
+window.title("Marketing Budget Allocation")
+
+# Create and place the labels and entry widgets for target clicks and total budget
+tk.Label(window, text="Target Clicks:").grid(row=0, column=0, padx=10, pady=10)
+entry_target_clicks = tk.Entry(window)
+entry_target_clicks.grid(row=0, column=1, padx=10, pady=10)
+
+tk.Label(window, text="Total Budget (Ksh):").grid(row=1, column=0, padx=10, pady=10)
+entry_total_budget = tk.Entry(window)
+entry_total_budget.grid(row=1, column=1, padx=10, pady=10)
+
+# Create and place the button to calculate the allocation
+calculate_button = tk.Button(window, text="Calculate Allocation", command=calculate_allocation)
+calculate_button.grid(row=2, columnspan=2, padx=10, pady=10)
+
+# Create and place the label to display the results
+result_label = tk.Label(window, text="", justify=tk.LEFT)
+result_label.grid(row=3, columnspan=2, padx=10, pady=10)
+
+# Run the main event loop
+window.mainloop()
