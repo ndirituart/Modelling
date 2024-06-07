@@ -1,7 +1,6 @@
 import tkinter as tk
 from Budget import entry_target_clicks
 
-#This is to get how much we can get from each sale of a product or service. The returns will be given by client
 # Function to calculate and display the results
 def calculate_revenue():
     # Get the input values from the user
@@ -34,8 +33,7 @@ def calculate_revenue():
 
     # Calculating profit
     profit = total_returns_from_clicks - total_budget
-    # Selling or booking an appointment bring actual value, shares, comments, DMs are potential clients but no monetary benefit yet
-    # However, the model can cater for organisations which engaging with their content produces money
+
     # Displaying the results
     result_text = (
         f"Revenue generated from sales per click: {sales_returns_from_clicks}\n"
@@ -46,7 +44,6 @@ def calculate_revenue():
         f"Revenue generated from messages per click: {messages_returns_from_clicks}\n"
         f"Total returns from clicked ads this month: {total_returns_from_clicks}\n"
         f"We have gained this revenue from ads: {profit}"
-
     )
     result_label.config(text=result_text)
 
@@ -65,18 +62,22 @@ entry_click_appointment.grid(row=1, column=1, padx=10, pady=5)
 
 tk.Label(window, text="Revenue from Comment Click:").grid(row=2, column=0, padx=10, pady=5)
 entry_click_comment = tk.Entry(window)
+entry_click_comment.insert(0, "0")  # Set default value to 0
 entry_click_comment.grid(row=2, column=1, padx=10, pady=5)
 
 tk.Label(window, text="Revenue from Share Click:").grid(row=3, column=0, padx=10, pady=5)
 entry_click_share = tk.Entry(window)
+entry_click_share.insert(0, "0")  # Set default value to 0
 entry_click_share.grid(row=3, column=1, padx=10, pady=5)
 
 tk.Label(window, text="Revenue from Like Click:").grid(row=4, column=0, padx=10, pady=5)
 entry_click_like = tk.Entry(window)
+entry_click_like.insert(0, "0")  # Set default value to 0
 entry_click_like.grid(row=4, column=1, padx=10, pady=5)
 
 tk.Label(window, text="Revenue from Message Click:").grid(row=5, column=0, padx=10, pady=5)
 entry_click_message = tk.Entry(window)
+entry_click_message.insert(0, "0")  # Set default value to 0
 entry_click_message.grid(row=5, column=1, padx=10, pady=5)
 
 tk.Label(window, text="Total Budget (Ksh):").grid(row=6, column=0, padx=10, pady=5)
