@@ -1,0 +1,28 @@
+from Budget import entry_target_clicks
+#This is to get how much we can get from each sale of a product or service
+#Declare a constant for how much each sale is bringing
+click_sale = 1500
+click_appointment=800
+click_share = 0.0 #unequitable
+click_view_profile= 0.0 #unequitable
+click_message = 0.0 #unequitable
+click_comment = 0.0 #unequitable
+click_like= 0.0 #unequitable
+
+# Selling or booking an appointment bring actual value, shares, comments, DMs are potential clients but no monetary benefit yet
+sales_returns_from_clicks = click_sale *  entry_target_clicks
+appointment_returns_from_clicks = click_appointment * entry_target_clicks
+
+print(f"Revenue generated per click: {sales_returns_from_clicks}")
+#separate clicks for money and those intangible ones
+
+# Give our target market that we expect to meet this month eg 2000 new users
+#I have imported our total budget still as Ksh.50,000
+target_market = 1500
+total_budget=50000
+total_returns_from_clicks = sales_returns_from_clicks * target_market
+print(f"Total returns from clicked ads this month: {total_returns_from_clicks}")
+
+#All these are hypothetical values, we want to see how much we can get from investing in our ads. Is it worth is and are we profiting?
+profit=total_returns_from_clicks - total_budget
+print(f"We have gained this revenue from ads: {profit}")
