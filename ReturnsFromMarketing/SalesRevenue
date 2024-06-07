@@ -1,28 +1,99 @@
+import tkinter as tk
 from Budget import entry_target_clicks
-#This is to get how much we can get from each sale of a product or service
-#Declare a constant for how much each sale is bringing
-click_sale = 1500
-click_appointment=800
-click_share = 0.0 #unequitable
-click_view_profile= 0.0 #unequitable
-click_message = 0.0 #unequitable
-click_comment = 0.0 #unequitable
-click_like= 0.0 #unequitable
 
-# Selling or booking an appointment bring actual value, shares, comments, DMs are potential clients but no monetary benefit yet
-sales_returns_from_clicks = click_sale *  entry_target_clicks
-appointment_returns_from_clicks = click_appointment * entry_target_clicks
+#This is to get how much we can get from each sale of a product or service. The returns will be given by client
+# Function to calculate and display the results
+def calculate_revenue():
+    # Get the input values from the user
+    click_sale = float(entry_click_sale.get())
+    click_appointment = float(entry_click_appointment.get())
+    click_comment = float(entry_click_comment.get())
+    click_share = float(entry_click_share.get())
+    click_like = float(entry_click_like.get())
+    click_message = float(entry_click_message.get())
+    total_budget = float(entry_total_budget.get())
+    target_clicks = float(entry_target_clicks.get())
 
-print(f"Revenue generated per click: {sales_returns_from_clicks}")
-#separate clicks for money and those intangible ones
+    # Calculating returns from clicks for each type
+    sales_returns_from_clicks = click_sale * target_clicks
+    appointment_returns_from_clicks = click_appointment * target_clicks
+    comments_returns_from_clicks = click_comment * target_clicks
+    shares_returns_from_clicks = click_share * target_clicks
+    likes_returns_from_clicks = click_like * target_clicks
+    messages_returns_from_clicks = click_message * target_clicks
 
-# Give our target market that we expect to meet this month eg 2000 new users
-#I have imported our total budget still as Ksh.50,000
-target_market = 1500
-total_budget=50000
-total_returns_from_clicks = sales_returns_from_clicks * target_market
-print(f"Total returns from clicked ads this month: {total_returns_from_clicks}")
+    # Calculating the total returns from clicks
+    total_returns_from_clicks = (
+        sales_returns_from_clicks +
+        appointment_returns_from_clicks +
+        comments_returns_from_clicks +
+        shares_returns_from_clicks +
+        likes_returns_from_clicks +
+        messages_returns_from_clicks
+    )
 
-#All these are hypothetical values, we want to see how much we can get from investing in our ads. Is it worth is and are we profiting?
-profit=total_returns_from_clicks - total_budget
-print(f"We have gained this revenue from ads: {profit}")
+    # Calculating profit
+    profit = total_returns_from_clicks - total_budget
+    # Selling or booking an appointment bring actual value, shares, comments, DMs are potential clients but no monetary benefit yet
+    # However, the model can cater for organisations which engaging with their content produces money
+    # Displaying the results
+    result_text = (
+        f"Revenue generated from sales per click: {sales_returns_from_clicks}\n"
+        f"Revenue generated from appointments per click: {appointment_returns_from_clicks}\n"
+        f"Revenue generated from comments per click: {comments_returns_from_clicks}\n"
+        f"Revenue generated from shares per click: {shares_returns_from_clicks}\n"
+        f"Revenue generated from likes per click: {likes_returns_from_clicks}\n"
+        f"Revenue generated from messages per click: {messages_returns_from_clicks}\n"
+        f"Total returns from clicked ads this month: {total_returns_from_clicks}\n"
+        f"We have gained this revenue from ads: {profit}"
+
+    )
+    result_label.config(text=result_text)
+
+# Create the main window
+window = tk.Tk()
+window.title("Revenue Calculation from Ads")
+
+# Create and place the labels and entry widgets for each input
+tk.Label(window, text="Revenue from Sale Click:").grid(row=0, column=0, padx=10, pady=5)
+entry_click_sale = tk.Entry(window)
+entry_click_sale.grid(row=0, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Revenue from Appointment Click:").grid(row=1, column=0, padx=10, pady=5)
+entry_click_appointment = tk.Entry(window)
+entry_click_appointment.grid(row=1, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Revenue from Comment Click:").grid(row=2, column=0, padx=10, pady=5)
+entry_click_comment = tk.Entry(window)
+entry_click_comment.grid(row=2, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Revenue from Share Click:").grid(row=3, column=0, padx=10, pady=5)
+entry_click_share = tk.Entry(window)
+entry_click_share.grid(row=3, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Revenue from Like Click:").grid(row=4, column=0, padx=10, pady=5)
+entry_click_like = tk.Entry(window)
+entry_click_like.grid(row=4, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Revenue from Message Click:").grid(row=5, column=0, padx=10, pady=5)
+entry_click_message = tk.Entry(window)
+entry_click_message.grid(row=5, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Total Budget (Ksh):").grid(row=6, column=0, padx=10, pady=5)
+entry_total_budget = tk.Entry(window)
+entry_total_budget.grid(row=6, column=1, padx=10, pady=5)
+
+tk.Label(window, text="Target Clicks:").grid(row=7, column=0, padx=10, pady=5)
+entry_target_clicks = tk.Entry(window)
+entry_target_clicks.grid(row=7, column=1, padx=10, pady=5)
+
+# Create and place the button to calculate the revenue
+calculate_button = tk.Button(window, text="Calculate Revenue", command=calculate_revenue)
+calculate_button.grid(row=8, columnspan=2, padx=10, pady=10)
+
+# Create and place the label to display the results
+result_label = tk.Label(window, text="", justify=tk.LEFT)
+result_label.grid(row=9, columnspan=2, padx=10, pady=10)
+
+# Run the main event loop
+window.mainloop()
