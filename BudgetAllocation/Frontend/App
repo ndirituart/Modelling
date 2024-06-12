@@ -1,0 +1,97 @@
+<template>
+  <div id="app">
+    <div class="content">
+      <img class="logo" alt="Vue logo" src="./assets/MyApp Logo.png">
+      <h1>Marketing Budget Form</h1>
+      <form>
+        <div>
+          <label>Target clicks: </label>
+          <input type="number" v-model="targetClicks" placeholder="Enter your target number of leads">
+          <br>
+        </div>
+        <div>
+          <label>Budget: </label>
+          <input type="number" v-model="budget" placeholder="Enter your budget in Ksh.">
+          <br>
+        </div>
+        <button type="button" @click="distributeFunds">Distribute Funds</button>
+      </form>
+      <HelloWorld msg="Thank you for trusting"/>
+      <div v-if="allocation">
+        <h2>Allocation Results:</h2>
+        <p>Facebook: {{ allocation.facebook }}</p>
+        <p>LinkedIn: {{ allocation.linkedin }}</p>
+        <p>Instagram: {{ allocation.instagram }}</p>
+        <p>WhatsApp: {{ allocation.whatsapp }}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue';
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  },
+  data() {
+    return {
+      targetClicks: '',
+      budget: '',
+      allocation: null
+    }
+  },
+  methods: {
+    async distributeFunds() {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/calculate-allocation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            target_clicks: this.targetClicks,
+            total_budget: this.budget
+          }),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          this.allocation = data;  // Set the allocation data to be displayed
+        } else {
+          throw new Error('Failed to fetch allocation');
+        }
+      } catch (error) {
+        console.error('Error distributing funds:', error);
+      }
+    }
+  }
+}
+</script>
+
+<style>
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: #7badde; /* Grey-blue background */
+}
+
+.content {
+  text-align: center;
+}
+
+.logo {
+  border-radius: 50%; /* Make the logo circular */
+  border: 5px solid rgb(34, 48, 100); /* Thick black line around the logo */
+  width: 150px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  object-fit: cover; /* Ensure the image fits within the circular shape */
+}
+</style>
