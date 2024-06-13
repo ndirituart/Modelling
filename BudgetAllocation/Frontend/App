@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="content">
-      <img class="logo" alt="Vue logo" src="./assets/MyApp Logo.png">
+      <img alt="Vue logo" src="./assets/MyApp Logo.png">
       <h1>Marketing Budget Form</h1>
       <form>
         <div>
@@ -45,25 +45,56 @@ export default {
   },
   methods: {
     async distributeFunds() {
-      try {
-        const response = await fetch('http://127.0.0.1:5000/calculate-allocation', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            target_clicks: this.targetClicks,
-            total_budget: this.budget
-          }),
-        });
-        if (response.ok) {
-          const data = await response.json();
-          this.allocation = data;  // Set the allocation data to be displayed
-        } else {
-          throw new Error('Failed to fetch allocation');
+// add constraints when there is no input, input is zero and auto-refreshing after an input is done
+      // Function to refresh fields and clear results
+      resetFields() {
+        this.targetClicks = '';
+        this.budget = '';
+        this.allocation = null;
+      },
+
+    // Function to distribute funds with added constraints
+    async distributeFunds() {
+        // Check if either targetClicks or budget is not provided
+        if (!this.targetClicks || !this.budget) {
+          alert("Please type in your target clicks or budget...");
+          return;
         }
-      } catch (error) {
-        console.error('Error distributing funds:', error);
+
+        // Check if targetClicks or budget is zero
+        if (parseInt(this.targetClicks) === 0 || parseFloat(this.budget) === 0) {
+          this.allocation = {
+            facebook: 0,
+            linkedin: 0,
+            instagram: 0,
+            whatsapp: 0
+          };
+          alert("Target clicks or budget is zero, allocating zero to each budget.");
+          return;
+        }
+
+        try {
+          const response = await fetch('http://127.0.0.1:5000/calculate_allocation', {// Correction 1...ensure same endpoint
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              target_clicks: parseInt(this.targetClicks),
+              total_budget: parseFloat(this.budget)
+            }),
+          });
+          if (response.ok) {
+            const data = await response.json();
+            this.allocation = data.budget_allocation;// Correction 2....we did not handle the response data
+            this.targetClicks = ''; // Reset the field
+            this.budget = '';
+          } else {
+            throw new Error('Failed to fetch');
+          }
+        } catch (error) {
+          console.error('Error distributing funds:', error);
+        }
       }
     }
   }
@@ -80,18 +111,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #7badde; /* Grey-blue background */
+  color: #2c3e50;
 }
 
 .content {
   text-align: center;
-}
-
-.logo {
-  border-radius: 50%; /* Make the logo circular */
-  border: 5px solid rgb(34, 48, 100); /* Thick black line around the logo */
-  width: 150px; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
-  object-fit: cover; /* Ensure the image fits within the circular shape */
 }
 </style>
