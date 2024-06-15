@@ -1,120 +1,61 @@
-<template>
-  <div id="app">
-    <div class="content">
-      <img alt="Vue logo" src="./assets/MyApp Logo.png">
-      <h1>Marketing Budget Form</h1>
-      <form>
-        <div>
-          <label>Target clicks: </label>
-          <input type="number" v-model="targetClicks" placeholder="Enter your target number of leads">
-          <br>
-        </div>
-        <div>
-          <label>Budget: </label>
-          <input type="number" v-model="budget" placeholder="Enter your budget in Ksh.">
-          <br>
-        </div>
-        <button type="button" @click="distributeFunds">Distribute Funds</button>
-      </form>
-      <HelloWorld msg="Thank you for trusting"/>
-      <div v-if="allocation">
-        <h2>Allocation Results:</h2>
-        <p>Facebook: {{ allocation.facebook }}</p>
-        <p>LinkedIn: {{ allocation.linkedin }}</p>
-        <p>Instagram: {{ allocation.instagram }}</p>
-        <p>WhatsApp: {{ allocation.whatsapp }}</p>
-      </div>
-    </div>
-  </div>
-</template>
+from flask_cors import CORS
+from flask import Flask, request, jsonify
 
-<script>
-import HelloWorld from './components/HelloWorld.vue';
+app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "http://localhost:8080"}})
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data() {
-    return {
-      targetClicks: '',
-      budget: '',
-      allocation: null
+@app.route('/calculate_allocation', methods=['POST'])
+def calculate_allocation():
+    data = request.json
+    if not data:
+        return jsonify({"error": "No input data provided"}), 400
+
+    target_clicks = data.get('target_clicks')
+    total_budget = data.get('total_budget')
+
+    if target_clicks is None or total_budget is None:
+        return jsonify({"error": "Invalid input data"}), 400
+
+    # Click-through rates
+    ctr_facebook = 15 / 100
+    ctr_linkedin = 47 / 100
+    ctr_instagram = 30 / 100
+    ctr_whatsapp = 8 / 100
+
+    # Calculate the impressions needed for each platform
+    impressions_facebook = target_clicks / ctr_facebook
+    impressions_linkedin = target_clicks / ctr_linkedin
+    impressions_instagram = target_clicks / ctr_instagram
+    impressions_whatsapp = target_clicks / ctr_whatsapp
+
+    # Calculate the total impressions needed
+    total_impressions = (impressions_facebook + impressions_linkedin + impressions_instagram + impressions_whatsapp)
+
+    # Calculate the percentage of the total impressions for each platform
+    percentage_facebook = impressions_facebook / total_impressions
+    percentage_linkedin = impressions_linkedin / total_impressions
+    percentage_instagram = impressions_instagram / total_impressions
+    percentage_whatsapp = impressions_whatsapp / total_impressions
+
+    # Allocate the budget based on the percentage of impressions needed from each platform
+    budget_facebook = total_budget * percentage_facebook
+    budget_linkedin = total_budget * percentage_linkedin
+    budget_instagram = total_budget * percentage_instagram
+    budget_whatsapp = total_budget * percentage_whatsapp
+
+    # Prepare the result
+    result = {
+        "target_clicks": target_clicks,
+        "total_budget": total_budget,
+        "budget_allocation": {
+            "facebook": round(budget_facebook, 2),
+            "linkedin": round(budget_linkedin, 2),
+            "instagram": round(budget_instagram, 2),
+            "whatsapp": round(budget_whatsapp, 2)
+        }
     }
-  },
-  methods: {
-    async distributeFunds() {
-// add constraints when there is no input, input is zero and auto-refreshing after an input is done
-      // Function to refresh fields and clear results
-      resetFields() {
-        this.targetClicks = '';
-        this.budget = '';
-        this.allocation = null;
-      },
 
-    // Function to distribute funds with added constraints
-    async distributeFunds() {
-        // Check if either targetClicks or budget is not provided
-        if (!this.targetClicks || !this.budget) {
-          alert("Please type in your target clicks or budget...");
-          return;
-        }
+    return jsonify(result)
 
-        // Check if targetClicks or budget is zero
-        if (parseInt(this.targetClicks) === 0 || parseFloat(this.budget) === 0) {
-          this.allocation = {
-            facebook: 0,
-            linkedin: 0,
-            instagram: 0,
-            whatsapp: 0
-          };
-          alert("Target clicks or budget is zero, allocating zero to each budget.");
-          return;
-        }
-
-        try {
-          const response = await fetch('http://127.0.0.1:5000/calculate_allocation', {// Correction 1...ensure same endpoint
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              target_clicks: parseInt(this.targetClicks),
-              total_budget: parseFloat(this.budget)
-            }),
-          });
-          if (response.ok) {
-            const data = await response.json();
-            this.allocation = data.budget_allocation;// Correction 2....we did not handle the response data
-            this.targetClicks = ''; // Reset the field
-            this.budget = '';
-          } else {
-            throw new Error('Failed to fetch');
-          }
-        } catch (error) {
-          console.error('Error distributing funds:', error);
-        }
-      }
-    }
-  }
-}
-</script>
-
-<style>
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-.content {
-  text-align: center;
-}
-</style>
+if __name__ == '__main__':
+    app.run(debug=True)
