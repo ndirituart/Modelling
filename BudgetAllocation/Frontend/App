@@ -1,61 +1,82 @@
-from flask_cors import CORS
-from flask import Flask, request, jsonify
+<!-- src/components/BudgetHome.vue -->
+<template>
+  <div>
+    <h1>Marketing Budget Form</h1>
+    <form @submit.prevent="distributeFunds">
+      <div>
+        <label>Target clicks: </label>
+        <input type="number" v-model="targetClicks" placeholder="Enter your target number of leads">
+      </div>
+      <div>
+        <label>Budget: </label>
+        <input type="number" v-model="budget" placeholder="Enter your budget in Ksh.">
+      </div>
+      <button type="submit">Distribute Funds</button>
+    </form>
+    <div v-if="errorMessage">
+      <p style="color: red">{{ errorMessage }}</p>
+    </div>
+  </div>
+</template>
 
-app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "http://localhost:8080"}})
+<script>
+export default {
+  data() {
+    return {
+      targetClicks: '',
+      budget: '',
+      errorMessage: ''
+    };
+  },
+  methods: {
+    async distributeFunds() {
+      const targetClicks = parseInt(this.targetClicks);
+      const budget = parseFloat(this.budget);
 
-@app.route('/calculate_allocation', methods=['POST'])
-def calculate_allocation():
-    data = request.json
-    if not data:
-        return jsonify({"error": "No input data provided"}), 400
+      if (!this.targetClicks || !this.budget) {
+        this.errorMessage = "Please type in your target clicks or budget...";
+        return;
+      }
+      
+      if (isNaN(targetClicks) || targetClicks <= 0) {
+        this.errorMessage = "Invalid target clicks, enter positive numbers.";
+        return;
+      }
+      
+      if (isNaN(budget) || budget < 0) {
+        this.errorMessage = "Invalid budget, enter a valid amount of money.";
+        return;
+      }
 
-    target_clicks = data.get('target_clicks')
-    total_budget = data.get('total_budget')
+      this.errorMessage = '';
 
-    if target_clicks is None or total_budget is None:
-        return jsonify({"error": "Invalid input data"}), 400
+      try {
+        const response = await fetch('http://127.0.0.1:5000/calculate_allocation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            target_clicks: targetClicks,
+            total_budget: budget
+          }),
+        });
 
-    # Click-through rates
-    ctr_facebook = 15 / 100
-    ctr_linkedin = 47 / 100
-    ctr_instagram = 30 / 100
-    ctr_whatsapp = 8 / 100
-
-    # Calculate the impressions needed for each platform
-    impressions_facebook = target_clicks / ctr_facebook
-    impressions_linkedin = target_clicks / ctr_linkedin
-    impressions_instagram = target_clicks / ctr_instagram
-    impressions_whatsapp = target_clicks / ctr_whatsapp
-
-    # Calculate the total impressions needed
-    total_impressions = (impressions_facebook + impressions_linkedin + impressions_instagram + impressions_whatsapp)
-
-    # Calculate the percentage of the total impressions for each platform
-    percentage_facebook = impressions_facebook / total_impressions
-    percentage_linkedin = impressions_linkedin / total_impressions
-    percentage_instagram = impressions_instagram / total_impressions
-    percentage_whatsapp = impressions_whatsapp / total_impressions
-
-    # Allocate the budget based on the percentage of impressions needed from each platform
-    budget_facebook = total_budget * percentage_facebook
-    budget_linkedin = total_budget * percentage_linkedin
-    budget_instagram = total_budget * percentage_instagram
-    budget_whatsapp = total_budget * percentage_whatsapp
-
-    # Prepare the result
-    result = {
-        "target_clicks": target_clicks,
-        "total_budget": total_budget,
-        "budget_allocation": {
-            "facebook": round(budget_facebook, 2),
-            "linkedin": round(budget_linkedin, 2),
-            "instagram": round(budget_instagram, 2),
-            "whatsapp": round(budget_whatsapp, 2)
+        if (response.ok) {
+          const data = await response.json();
+          this.$router.push({ name: 'BudgetResults', params: { allocation: data.budget_allocation } });
+        } else {
+          throw new Error('Failed to fetch');
         }
+      } catch (error) {
+        console.error('Error distributing funds:', error);
+        this.errorMessage = 'Error distributing funds, please try again later.';
+      }
     }
+  }
+};
+</script>
 
-    return jsonify(result)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+<style scoped>
+/* Add your styles here */
+</style>
