@@ -1,7 +1,7 @@
 def calculate_new_hires(sales_target, department_targets):
     # Sales-driven targets for different departments as percentages
     department_percentages = {
-        'sales': 0.10,
+        'sales': 0.10
         'it': 0.05,
         'hr': 0.03
     }
