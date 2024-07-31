@@ -1,0 +1,377 @@
+Age,Gender,Education Level,Job Title,Years of Experience,Salary
+32,Male,Bachelor's,Marketing,5,90000
+28,Female,Master's,Sales,3,65000
+45,Male,PhD,Sales,15,150000
+36,Female,Bachelor's,Sales,7,60000
+52,Male,Master's,Procurement,20,200000
+29,Male,Bachelor's,Marketing ,2,55000
+42,Female,Master's,Manager,12,120000
+31,Male,Bachelor's,Sales ,4,80000
+26,Female,Bachelor's,Marketing ,1,45000
+38,Male,PhD,Sales,10,110000
+29,Male,Master's,Marketing,3,75000
+48,Female,Bachelor's,IT,18,140000
+35,Male,Bachelor's,Procurement,6,65000
+40,Female,Master's,Manager,14,130000
+27,Male,Bachelor's,Sales,2,40000
+44,Male,Bachelor's,Manager,16,125000
+33,Female,Master's,Marketing ,7,90000
+39,Male,PhD,Marketing,12,115000
+25,Female,Bachelor's,Procurement,0,35000
+51,Male,Bachelor's,Director,22,180000
+34,Female,Master's,Sales,5,80000
+47,Male,Master's,Sales,19,190000
+30,Male,Bachelor's,IT,2,50000
+36,Female,Bachelor's,Sales,9,60000
+41,Male,Master's,Manager,13,140000
+28,Female,Bachelor's,Manager,3,45000
+37,Female,Master's,Manager,11,110000
+24,Male,Bachelor's,Marketing,1,40000
+43,Female,PhD,Sales,15,140000
+33,Male,Master's,Marketing,6,90000
+50,Male,Bachelor's,CEO,25,250000
+31,Female,Bachelor's,Sales,4,55000
+29,Male,Master's,Marketing,3,75000
+39,Female,Bachelor's,Marketing ,10,65000
+46,Male,PhD,Sales,20,170000
+27,Male,Bachelor's,Sales,2,45000
+35,Female,Bachelor's,Sales,7,60000
+42,Male,Master's,Marketing,14,115000
+26,Female,Bachelor's,Sales,1,40000
+49,Male,Bachelor's,Sales,21,160000
+34,Female,Master's,Marketing,5,80000
+48,Male,Master's,Sales,18,190000
+30,Male,Bachelor's,Marketing,3,60000
+36,Female,Bachelor's,Marketing,8,45000
+41,Male,Master's,Sales,13,130000
+28,Female,Bachelor's,Marketing,2,40000
+32,Male,Bachelor's,Manager,5,75000
+45,Female,Master's,Marketing,16,180000
+38,Male,PhD,Sales,11,120000
+25,Male,Bachelor's,Procurement,0,35000
+51,Female,Bachelor's,Manager,22,130000
+33,Male,Master's,Procurement,7,85000
+40,Female,Bachelor's,Sales,12,60000
+47,Male,Master's,Marketing,19,200000
+29,Female,Bachelor's,Sales,3,50000
+36,Male,Bachelor's,Sales ,9,95000
+27,Female,Master's,Procurement,2,65000
+43,Male,PhD,Marketing,17,140000
+30,Female,Bachelor's, Manager,4,55000
+35,Male,Master's,Manager,7,105000
+51,Female,Master's,IT,23,170000
+29,Male,Bachelor's,Marketing ,3,50000
+40,Female,Bachelor's,Manager,12,80000
+47,Male,PhD,IT,21,180000
+26,Male,Bachelor's,Sales,1,35000
+38,Female,Master's, Manager,10,90000
+46,Male,Bachelor's,IT ,19,120000
+31,Female,Bachelor's,Procurement,5,45000
+34,Male,Master's,Manager,8,90000
+49,Female,Master's,Procurement,18,150000
+33,Male,Bachelor's,IT,6,65000
+39,Female,Bachelor's,Manager,11,70000
+45,Male,PhD,Marketing,16,190000
+28,Male,Bachelor's,Sales,2,40000
+42,Female,Master's,Marketing,14,120000
+37,Male,Bachelor's,Manager,10,95000
+50,Female,Bachelor's,Manager,22,160000
+32,Male,Master's,Marketing,6,100000
+48,Female,Master's,Sales,20,180000
+30,Female,Bachelor's,Marketing ,3,55000
+36,Male,Bachelor's,Procurement,8,70000
+41,Female,Master's,Sales,13,80000
+25,Male,Bachelor's,Sales ,0,30000
+52,Male,PhD,Manager,24,250000
+29,Female,Bachelor's,Marketing,2,40000
+34,Female,Master's,Sales,10,95000
+27,Male,Bachelor's,Manager,2,45000
+40,Female,Bachelor's,Sales,15,80000
+46,Male,Master's,Manager,21,135000
+31,Female,Bachelor's,Marketing, 6,55000
+36,Male,PhD,Manager,11,120000
+29,Female,Bachelor's,Sales,3,40000
+43,Male,Bachelor's,Manager,18,105000
+52,Female,Master's, Marketing ,25,170000
+33,Male,Bachelor's,Sales,7,75000
+39,Female,Bachelor's,Procurement,12,65000
+47,Male,PhD,Sales,22,160000
+26,Male,Bachelor's, Marketing,1,35000
+38,Female,Master's,Manager,10,90000
+45,Male,Bachelor's,IT,20,110000
+31,Female,Bachelor's,Procurement,5,45000
+35,Male,Master's,Marketing,8,95000
+49,Female,Master's,Manager,19,150000
+33,Male,Bachelor's,IT,5,50000
+39,Female,Master's,Manager,13,80000
+44,Male,PhD,Procurement,16,220000
+30,Female,Bachelor's,Marketing,3,50000
+36,Male,Bachelor's,IT,7,60000
+41,Female,Master's, Marketing,14,100000
+28,Male,Bachelor's,Manager,2,40000
+42,Female,Master's,IT,15,110000
+37,Male,Bachelor's,Manager,9,95000
+50,Female,Bachelor's,IT,22,130000
+32,Male,Master's,Manager,6,90000
+23,Female,Bachelor's,Marketing ,0.5,35000
+31,Male,Master's,IT,6,95000
+40,Female,Bachelor's,Manager,15,65000
+48,Male,PhD,Procurement,20,170000
+29,Female,Bachelor's,Sales,3,45000
+35,Male,Master's,Manager,10,120000
+42,Female,Bachelor's,Sales,17,100000
+53,Male,Master's,Marketing,25,180000
+33,Female,Bachelor's,IT,5,50000
+38,Male,Bachelor's, Manager,11,80000
+44,Female,PhD,Sales,16,140000
+26,Male,Bachelor's,Procurement,2,40000
+37,Female,Master's,Maketing,9,95000
+45,Male,Bachelor's,Sales,18,110000
+32,Female,Bachelor's,Marketing,4,50000
+34,Male,Master's, Marketing,8,105000
+50,Female,Master's,Procurement,21,160000
+29,Male,Bachelor's,IT,3,45000
+40,Female,Master's,Sales,12,100000
+47,Male,PhD,Marketing,22,160000
+27,Male,Bachelor's,Sales,1,35000
+39,Female,Bachelor's,Procurement,10,55000
+46,Male,Master's,Manager,19,140000
+30,Female,Bachelor's,Marketing,4,50000
+36,Male,Bachelor's,Sales,7,60000
+43,Female,Master's, Manager,14,120000
+28,Male,Bachelor's,Sales,2,40000
+41,Female,Master's, Marketing ,13,110000
+33,Male,Bachelor's, Manager,5,50000
+47,Male,Bachelor's, Sales ,20,135000
+25,Female,Master's, Marketing ,1.5,40000
+34,Male,Bachelor's, Procurement,8,90000
+42,Female,PhD, IT,16,150000
+31,Male,Bachelor's, Manager,4,60000
+38,Female,Bachelor's, Sales,10,80000
+45,Male,Master's,Sales,19,175000
+29,Female,Bachelor's, Marketing,3,45000
+36,Male,Master's,  Manager,11,120000
+43,Female,PhD, Sales,18,140000
+26,Male,Bachelor's, Procurement,2,35000
+37,Female,Master's, Marketing ,9,95000
+44,Male,Bachelor's, IT,14,110000
+32,Female,Bachelor's, Procurement,5,50000
+33,Male,Master's, Manager,7,115000
+51,Female,PhD,Marketing,23,185000
+28,Male,Bachelor's, Marketing,2,40000
+39,Female,Bachelor's, Sales ,12,90000
+48,Male,Master's,Manager,21,175000
+30,Female,Bachelor's, Sales,3,45000
+35,Male,Bachelor's, Marketing ,7,80000
+41,Female,Master's, Manager,13,120000
+27,Male,Bachelor's, Procurement,1.5,35000
+40,Female,Bachelor's, Manager,14,110000
+46,Male,PhD, Sales,18,150000
+31,Female,Bachelor's, Procurement,4,50000
+34,Male,Master's, Marketing,9,105000
+50,Female,Master's,Sales,20,180000
+29,Male,Bachelor's, Marketing,2,40000
+,,,,,
+43,Male,Bachelor's, Manager,16,140000
+26,Female,Master's, IT,1.5,45000
+35,Male,Bachelor's, Procurement,7,85000
+42,Female,PhD, Marketing ,18,140000
+31,Male,Bachelor's, Sales,4,50000
+38,Female,Bachelor's, Procurement,10,80000
+46,Male,Master's,Sales,20,170000
+29,Female,Bachelor's, Sales ,2,40000
+37,Male,Master's, Marketing,9,105000
+44,Female,PhD, IT,15,145000
+27,Male,Bachelor's, PManager,2,40000
+36,Female,Bachelor's, Marketing ,8,85000
+43,Male,Bachelor's, IT ,14,130000
+33,Female,Master's, Procurement,6,95000
+34,Male,Bachelor's, Sales,9,100000
+50,Female,PhD,Marketing,22,180000
+28,Male,Bachelor's, Procurement,1.5,35000
+39,Female,Bachelor's, Sales,12,95000
+47,Male,Master's,Marketing,19,170000
+30,Female,Bachelor's, Manager,3,45000
+34,Male,Bachelor's, Manager,7,95000
+40,Female,Master's, Procurement,13,120000
+28,Male,Bachelor's, Sales,2,40000
+41,Female,Bachelor's, Marketing ,11,90000
+45,Male,PhD, Sales,17,155000
+32,Female,Bachelor's,  Manager,5,55000
+35,Male,Master's, Marketing,9,110000
+49,Female,Master's,Procurement,21,180000
+30,Male,Bachelor's, Sales,3,45000
+44,Male,Bachelor's, Manager,16,130000
+27,Female,Master's, IT,1.5,45000
+36,Male,Bachelor's, Sales,7,90000
+41,Female,PhD, Marketing ,17,160000
+31,Male,Bachelor's,Sales,4,50000
+39,Female,Bachelor's, Manager,10,120000
+47,Male,Master's,Sales,20,170000
+30,Female,Bachelor's, Marketing,2,40000
+38,Male,Master's, IT,9,110000
+45,Female,PhD, Marketing,15,150000
+28,Male,Bachelor's, Sals,2,40000
+35,Female,Bachelor's, Marketing ,8,85000
+44,Male,Bachelor's, Marketing,14,130000
+34,Female,Master's, Sales,6,100000
+35,Male,Bachelor's, Manager,9,95000
+50,Female,PhD,Sales,22,180000
+29,Male,Bachelor's, Marketing,1.5,35000
+40,Female,Bachelor's, Sales,12,100000
+48,Male,Master's,Marketing,19,170000
+31,Female,Bachelor's, Sales,3,45000
+33,Male,Bachelor's,  Manager,7,100000
+42,Female,Master's, Manager,13,140000
+28,Male,Bachelor's, Procurement,2,40000
+40,Female,Bachelor's, Marketing ,11,105000
+46,Male,PhD, IT,18,160000
+33,Female,Bachelor's, Manager,5,70000
+37,Male,Master's, IT,9,120000
+51,Female,Master's,Procurement,21,190000
+30,Male,Bachelor's, Marketing,3,45000
+43,Male,Bachelor's, Manager,15,120000
+27,Female,Master's, Sales,1.5,50000
+35,Male,Bachelor's, Procurement,8,85000
+42,Female,PhD, Marketing ,13,140000
+32,Male,Bachelor's, Sales ,3,45000
+37,Female,Bachelor's, Procurement,9,100000
+45,Male,Master's, Marketing,16,140000
+33,Female,Bachelor's, IT,5,70000
+39,Male,Bachelor's, Marketing,10,120000
+44,Female,PhD, Manager,18,160000
+29,Male,Bachelor's, Sales,1.5,40000
+38,Female,Bachelor's, Manager,10,120000
+46,Male,PhD, Sales,19,150000
+34,Female,Bachelor's, Marketing,6,70000
+36,Male,Bachelor's, Manager,8,95000
+49,Female,Master's,Marketing,21,180000
+31,Male,Bachelor's, Procurement,3,50000
+41,Female,Bachelor's, Manager,11,95000
+47,Male,Master's,Sales,20,170000
+30,Female,Bachelor's, Marketing,2,40000
+38,Male,Master's, IT ,9,110000
+45,Female,PhD, Marketing,15,150000
+28,Male,Bachelor's, BSales,2,40000
+35,Female,Bachelor's, Marketing ,8,85000
+44,Male,Bachelor's, Marketing,14,130000
+34,Female,Master's, Sales,6,100000
+35,Male,Bachelor's, Manager,9,95000
+50,Female,PhD,Manager,22,180000
+29,Male,Bachelor's, Sales,1.5,350
+,,,,,
+37,Female,Bachelor's,  Manager,10,120000
+46,Male,PhD, IT,18,160000
+31,Female,Bachelor's, Marketing ,3,50000
+42,Male,Bachelor's, Manager,12,110000
+29,Female,Bachelor's, Sales ,1.5,40000
+36,Male,Bachelor's, Marketing ,8,95000
+44,Female,Master's, Procurement,15,140000
+33,Male,Bachelor's, Manager,4,60000
+39,Female,Bachelor's, Marketing ,9,110000
+45,Male,PhD, IT,16,150000
+32,Female,Bachelor's, Marketing ,4,60000
+37,Male,Bachelor's, Procurement,8,90000
+47,Female,Master's, Marketing,20,180000
+30,Male,Bachelor's, Sales,2,40000
+38,Female,Bachelor's, Manager,9,120000
+46,Male,PhD, Sales,17,160000
+34,Female,Bachelor's, Procurement,5,70000
+36,Male,Bachelor's, Manager,8,95000
+49,Female,Master's,Sales,21,180000
+31,Male,Bachelor's, Procurement,3,50000
+41,Female,Bachelor's, Manager,11,95000
+47,Male,Master's,Marketing,19,170000
+29,Female,Bachelor's, Sales,1.5,35000
+35,Male,Bachelor's, Manager,9,100000
+44,Female,PhD, Sales,15,150000
+33,Male,Bachelor's, IT,4,60000
+35,Female,Bachelor's, Marketing ,8,85000
+44,Male,Bachelor's, Marketing,13,130000
+32,Male,Bachelor's, Manager,4,65000
+38,Female,Bachelor's, Sales,10,110000
+49,Male,PhD,Manager,21,180000
+29,Female,Bachelor's, Marketing,2,40000
+35,Male,Bachelor's, Manager,7,90000
+45,Female,Master's, Manager,14,140000
+33,Male,Bachelor's, Procurement,4,60000
+40,Female,Bachelor's, Marketing ,12,130000
+44,Male,PhD, IT,16,160000
+30,Female,Bachelor's, Manager,2,40000
+37,Male,Bachelor's, Marketing ,9,100000
+48,Female,Master's,Procurement,20,180000
+31,Male,Bachelor's, Manager,3,55000
+38,Female,Bachelor's, Manager,9,120000
+45,Male,PhD, IT,16,150000
+33,Female,Bachelor's, Marketing ,5,70000
+36,Male,Bachelor's, Sales,8,95000
+49,Female,Master's,Marketing,21,180000
+31,Male,Bachelor's, Manager,3,50000
+///
+42,Female,Bachelor's, Manager,12,120000
+47,Male,Master's,Marketing,19,170000
+29,Female,Bachelor's, Sales ,1.5,35000
+35,Male,Bachelor's, Manager,9,100000
+44,Female,PhD, Sales,15,150000
+33,Male,Bachelor's, Sales,4,60000
+35,Female,Bachelor's, Marketing ,8,85000
+44,Male,Bachelor's, Marketing,13,130000
+34,Female,Master's, Sales,6,80000
+36,Male,Bachelor's, Marketing,8,95000
+30,Female,Bachelor's, Procurement,2,40000
+37,Male,Bachelor's, Sales,10,120000
+45,Female,Master's, Marketing ,16,160000
+32,Male,Bachelor's, IT,4,65000
+39,Female,Bachelor's, Manager,12,130000
+47,Male,PhD,IT,20,180000
+29,Female,Bachelor's, Marketing,2,40000
+36,Male,Bachelor's, Manager,9,100000
+43,Female,PhD, IT,15,150000
+32,Male,Bachelor's, Marketing,3,55000
+38,Female,Bachelor's, Sales,10,110000
+48,Male,Master's,Marketing,21,180000
+31,Female,Bachelor's, Sales,3,50000
+40,Male,Bachelor's, Procurement,12,130000
+45,Female,PhD, Sales,16,160000
+33,Male,Bachelor's, Manager,4,60000
+36,Female,Bachelor's, Marketing,8,95000
+47,Male,Master's,Manager,19,170000
+29,Female,Bachelor's, Procurement,2,40000
+34,Male,Bachelor's, Manager,7,90000
+44,Female,PhD, Sales,15,150000
+33,Male,Bachelor's, Marketing ,5,70000
+35,Female,Bachelor's, IT,8,90000
+43,Male,Master's,Marketing,18,170000
+31,Female,Bachelor's, Procurement,3,50000
+41,Male,Bachelor's, Manager,14,150000
+44,Female,PhD, IT,16,160000
+33,Male,Bachelor's, Sales,4,60000
+35,Female,Bachelor's, Marketing,8,85000
+45,Male,Master's,IT,19,180000
+28,Female,Bachelor's, Manager,1,35000
+36,Male,Bachelor's, Manager,8,110000
+44,Female,PhD, IT,16,160000
+31,Male,Bachelor's, Marketing,3,55000
+38,Female,Bachelor's, Sales,10,110000
+48,Male,Master's,Marketing,21,180000
+31,Female,Bachelor's, Sales ,3,50000
+40,Male,Bachelor's, Procurement,12,130000
+45,Female,PhD, IT,16,160000
+33,Male,Bachelor's,  Manager,4,60000
+36,Female,Bachelor's, Marketing ,8,95000
+47,Male,Master's,Manager,19,170000
+29,Female,Bachelor's,IT,2,40000
+34,Male,Bachelor's, Manager,7,90000
+44,Female,PhD, Sales,15,150000
+33,Male,Bachelor's, Marketing,5,70000
+35,Female,Bachelor's,Manager,8,90000
+43,Male,Master's,Marketing,18,170000
+31,Female,Bachelor's, Procurement,3,50000
+41,Male,Bachelor's, Manager,14,150000
+44,Female,PhD, IT,16,160000
+33,Male,Bachelor's, Sales,4,60000
+35,Female,Bachelor's, Marketing,8,85000
+43,Male,Master's,Manager,19,170000
+29,Female,Bachelor's, IT,2,40000
+34,Male,Bachelor's, Manager,7,90000
+44,Female,PhD, Sales,15,150000
