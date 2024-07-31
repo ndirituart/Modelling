@@ -66,24 +66,18 @@ print(outliers[['Salary']])
 
 # Remove rows with outliers
 df_cleaned = df[(df['Salary'] >= lower_bound) & (df['Salary'] <= upper_bound)]
+# Filter the DataFrame to include only the relevant job titles
+relevant_jobs = ['Manager', 'Marketing', 'Sales', 'Procurement']
+df_filtered = df_cleaned[df_cleaned['Job Title'].isin(relevant_jobs)]
 
-# Creates a boxplot to visualize Salary
-plt.figure(figsize=(10, 6))
-plt.boxplot(df['Salary'])
-plt.title('Boxplot of Salaries Showing Outliers')
+# Create box plots for each job title
+plt.figure(figsize=(12, 8))
+df_filtered.boxplot(column='Salary', by='Job Title')
+plt.title('Salary Distribution by Job Title')
+plt.suptitle('')  # This removes the automatic suptitle
 plt.ylabel('Salary')
+plt.xlabel('Job Title')
 plt.show()
-
-# Drop the "Job Title" column since it is hard to model with over 10 job titles
-df_cleaned = df_cleaned.drop(columns=["Job Title"])
-
-# Display the modified DataFrame
-print("\nDataFrame after dropping 'Job Title' column:")
-print(df_cleaned)
-
-# Display the cleaned DataFrame
-print("\nCleaned DataFrame:")
-print(df_cleaned)
 
 # Split the dataset into training and testing sets
 X = df_cleaned[['Age', 'Gender', 'Education Level', 'Years of Experience']]
